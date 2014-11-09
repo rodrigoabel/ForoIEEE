@@ -1,0 +1,27 @@
+<%- model_class = Tema -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:usuario_id) %>:</strong></dt>
+  <dd><%= @tema.usuario_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:titulo) %>:</strong></dt>
+  <dd><%= @tema.titulo %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:resena) %>:</strong></dt>
+  <dd><%= @tema.resena %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tag_id) %>:</strong></dt>
+  <dd><%= @tema.tag_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:like) %>:</strong></dt>
+  <dd><%= @tema.like %></dd>
+</dl>
+
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              temas_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_tema_path(@tema), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              tema_path(@tema),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

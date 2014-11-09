@@ -1,0 +1,59 @@
+<%= form_for @tema, :html => { :class => "form-horizontal tema" } do |f| %>
+
+    <% if @tema.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@tema.errors.count, "error") %> prohibited this tema from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @tema.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="control-group">
+    <%= f.label :usuario_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :usuario_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tema[:usuario_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :titulo, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :titulo, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tema[:titulo]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :resena, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :resena, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tema[:resena]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :tag_id, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :tag_id, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tema[:tag_id]) %>
+  </div>
+  <div class="control-group">
+    <%= f.label :like, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :like, :class => 'form-control' %>
+    </div>
+    <%= error_span(@tema[:like]) %>
+  </div>
+
+
+  <%= f.submit nil, :class => 'btn btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+            temas_path, :class => 'btn btn-default' %>
+
+<% end %>
